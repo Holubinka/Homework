@@ -14,9 +14,6 @@ public class Homework1_1 {
     private static  void rotated (int[] arr, int position){
         int [] temp = Arrays.copyOf(arr, arr.length);
 
-//        for(int i = 0; i < position; i++) {
-//            arr[arr.length - position + i] = temp[i];
-//        }
         for (int i = 0; i < temp.length; i++){
             if(i < position){
                 arr [arr.length - position + i] = temp[i];
