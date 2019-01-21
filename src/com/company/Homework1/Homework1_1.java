@@ -7,7 +7,7 @@ public class Homework1_1 {
 
     public static void main(String[] args) {
         int count, position;
-        int [] arr;
+        int [] arr, copied;
         //int[] arr = {5, 6, 1, 2, 6};
         Scanner in = new Scanner(System.in);
 
@@ -22,9 +22,12 @@ public class Homework1_1 {
         System.out.print("Введіть на скільки елементів змістити масив: ");
         position = in.nextInt();
 
-        rotated(arr, position);
+        copied = rotated(arr, position);
+
+        System.out.println("Результат ");
+        System.out.println(Arrays.toString(copied));
     }
-    private static  void rotated (int[] arr, int position){
+    private static  int [] rotated (int[] arr, int position){
         int [] temp = Arrays.copyOf(arr, arr.length);
 
         for (int i = 0; i < temp.length; i++){
@@ -34,13 +37,6 @@ public class Homework1_1 {
                 arr [i - position] = temp[i];
             }
         }
-
-        System.out.print("Результат: ");
-
-        for (Integer list : arr) {
-            System.out.print(list + " ");
-        }
-
-        System.out.println();
+        return arr;
     }
 }

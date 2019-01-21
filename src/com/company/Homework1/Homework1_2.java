@@ -6,7 +6,10 @@ import java.util.Scanner;
 public class Homework1_2 {
     public  static void main(String[] args) {
         //int[] arr = {1, 2, -1, 4, 7, 6, -2, 4, 3, -5, 3, 4 };
-        restore(enterArr());
+        int[] copied = restore(enterArr());
+
+        System.out.println("Результат: ");
+        System.out.println(Arrays.toString(copied));
     }
     private  static  int[]  enterArr(){
         int count;
@@ -23,7 +26,7 @@ public class Homework1_2 {
         }
         return arr;
     }
-    private  static  void restore(int[] arr){
+    private  static  int [] restore(int[] arr){
         int [] temp = Arrays.copyOf(arr, arr.length);
 
         for (int i = 1; i < temp.length-1; i++){
@@ -31,13 +34,6 @@ public class Homework1_2 {
                 temp[i] = (temp[i + 1] + temp[i - 1]) / 2;
             }
         }
-
-        System.out.print("Результат: ");
-
-        for (Integer list : temp) {
-            System.out.print(list + " ");
-        }
-
-        System.out.println();
+        return  temp;
     }
 }
