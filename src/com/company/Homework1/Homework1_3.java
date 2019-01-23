@@ -2,7 +2,7 @@ package com.company.homework1;
 
 import java.util.*;
 
-class HomeWork1_3 {
+public class HomeWork1_3 {
     public static void main(String[] args) {
         range(enterArr());
     }
