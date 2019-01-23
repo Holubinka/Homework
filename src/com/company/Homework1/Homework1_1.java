@@ -1,42 +1,39 @@
-package com.company.Homework1;
+package com.company.homework1;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Homework1_1 {
+class HomeWork1_1 {
 
     public static void main(String[] args) {
-        int count, position;
-        int [] arr, copied;
-        //int[] arr = {5, 6, 1, 2, 6};
         Scanner in = new Scanner(System.in);
 
         System.out.print("Введіть розмірність масива: ");
-        count = in.nextInt();
-        arr = new int[count];
+        int count = in.nextInt();
+        int[] arr = new int[count];
 
         System.out.print("Введіть масив: ");
-        for (int i = 0; i < count; i++ ){
-            arr [i] = in.nextInt();
+        for (int i = 0; i < count; i++){
+            arr[i] = in.nextInt();
         }
         System.out.print("Введіть на скільки елементів змістити масив: ");
-        position = in.nextInt();
+        int position = in.nextInt();
 
-        copied = rotated(arr, position);
+        int[] rotatedArray = rotated(arr, position);
 
         System.out.println("Результат ");
-        System.out.println(Arrays.toString(copied));
+        System.out.println(Arrays.toString(rotatedArray));
     }
-    private static  int [] rotated (int[] arr, int position){
-        int [] temp = Arrays.copyOf(arr, arr.length);
+    private static int[] rotated(int[] arr, int position){
+        int[] temp = Arrays.copyOf(arr, arr.length);
 
         for (int i = 0; i < temp.length; i++){
             if (i < position){
-                arr [arr.length - position + i] = temp[i];
+                temp[arr.length - position + i] = arr[i];
             } else {
-                arr [i - position] = temp[i];
+                temp[i - position] = arr[i];
             }
         }
-        return arr;
+        return temp;
     }
 }
