@@ -35,7 +35,7 @@ public class HomeWork1_3 {
                 System.out.print(temp[i] + " ] ");
                 count = 0;
             } else {
-                System.out.print("[ "+temp[i] + " ] ");
+                System.out.print("[ " + temp[i] + " ] ");
                 count = 0;
             }
         }
