@@ -2,7 +2,7 @@ package com.company.homework1;
 
 import java.util.*;
 
-public class HomeWork1_3 {
+public class ArrayRange {
     public static void main(String[] args) {
         range(enterArr());
     }
@@ -19,6 +19,7 @@ public class HomeWork1_3 {
         }
         return arr;
     }
+
     private static void range (int [] arr) {
         int [] temp = Arrays.copyOf(arr, arr.length + 1);
         int count = 0;

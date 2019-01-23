@@ -23,6 +23,7 @@ public class ArrayRestore {
         }
         return arr;
     }
+
     private static int[] restore(int[] arr) {
         int[] temp = Arrays.copyOf(arr, arr.length);
 
