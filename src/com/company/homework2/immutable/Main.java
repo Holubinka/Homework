@@ -1,4 +1,4 @@
-package com.company.Homework2.Immutable;
+package com.company.homework2.immutable;
 
 import java.util.Date;
 final class ImmutablePerson {
@@ -29,15 +29,20 @@ final class ImmutablePerson {
     public Date getBirthDay() {
         return new Date(birthDay.getTime());
     }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", age=" + age +
+                ", colorEye='" + colorEye + '\'' +
+                ", birthDay=" + birthDay;
+    }
 }
 
-public class  Main {
+public class Main {
     public static void main(String[] args) {
-        ImmutablePerson immutablePerson = new  ImmutablePerson("Vitalik",22, "Green", new Date());
+        ImmutablePerson immutablePerson = new ImmutablePerson("Vitalik",22, "Green", new Date());
 
-        System.out.println(immutablePerson.getName());
-        System.out.println(immutablePerson.getAge());
-        System.out.println(immutablePerson.getColorEye());
-        System.out.println(immutablePerson.getBirthDay());
+        System.out.println(immutablePerson);
     }
 }
