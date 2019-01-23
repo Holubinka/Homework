@@ -3,7 +3,7 @@ package com.company.homework1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class HomeWork1_2 {
+public class ArrayRestore {
     public static void main(String[] args) {
         int[] restoreArray = restore(enterArr());
 

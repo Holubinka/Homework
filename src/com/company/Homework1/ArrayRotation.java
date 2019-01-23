@@ -3,7 +3,7 @@ package com.company.homework1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class HomeWork1_1 {
+public class ArrayRotation {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
