@@ -10,6 +10,7 @@ public class ArrayRestore {
         System.out.println("Результат: ");
         System.out.println(Arrays.toString(restoreArray));
     }
+
     private static int[] enterArr() {
         Scanner in = new Scanner(System.in);
 

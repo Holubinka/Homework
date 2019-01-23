@@ -6,6 +6,7 @@ public class ArrayRange {
     public static void main(String[] args) {
         range(enterArr());
     }
+
     private static int[]  enterArr() {
         Scanner in = new Scanner(System.in);
 
