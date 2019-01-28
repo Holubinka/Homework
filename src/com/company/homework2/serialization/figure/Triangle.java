@@ -1,12 +1,14 @@
 package com.company.homework2.serialization.figure;
 
-public class Triangle extends Group {
+public class Triangle implements Shape {
     private double[] side;
     private double perimeter;
+    private double area;
 
     public Triangle(double[] side) {
         this.side = side;
         setPerimeter();
+        setArea();
     }
 
     private boolean existTriangle() {
@@ -26,6 +28,14 @@ public class Triangle extends Group {
             }
         } else {
             System.out.println("Такого трикутника не існує");
+        }
+    }
+
+    @Override
+    public void setArea() {
+        if (existTriangle()) {
+            double p = perimeter / 2;
+            area = Math.sqrt(p * (p - side[0]) * (p - side[1]) * (p - side[2]));
         }
     }
 

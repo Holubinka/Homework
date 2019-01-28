@@ -7,7 +7,7 @@ public class Person {
     private final double height;
     private final String colorEye;
 
-    public Person(PersonBuilder personBuilder) {
+    private Person(PersonBuilder personBuilder) {
         this.name = personBuilder.name;
         this.age = personBuilder.age;
         this.address = personBuilder.address;

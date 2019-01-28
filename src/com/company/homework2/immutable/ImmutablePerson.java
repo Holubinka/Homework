@@ -26,7 +26,7 @@ public final class ImmutablePerson {
     }
 
     public Parents getParent() {
-        return new Parents(this.parent.getFather(), this.parent.getMother());
+        return parent.clone();
     }
 
     @Override
@@ -38,7 +38,7 @@ public final class ImmutablePerson {
     }
 }
 
-class Parents {
+class Parents implements Cloneable {
     private String father;
     private String mother;
 
@@ -67,5 +67,14 @@ class Parents {
     public String toString() {
         return "father='" + father + '\'' +
                 ", mother='" + mother + '\'';
+    }
+
+    public Parents clone() {
+        try {
+            return (Parents) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
