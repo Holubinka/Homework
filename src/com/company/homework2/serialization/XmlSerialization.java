@@ -48,7 +48,9 @@ public class XmlSerialization {
             if (field.getType().isArray()) {
                 xmlString += encodeArrayField(field, shape);
             } else {
-                xmlString += "\t\t<" + field.getName() + ">" + field.get(shape).toString() + "</" + field.getName() + ">\n";
+                xmlString += "\t\t<" + field.getName() + ">";
+                xmlString+=field.get(shape).toString();
+                xmlString+="</" + field.getName() + ">\n";
             }
         }
         return xmlString;

@@ -10,7 +10,8 @@ public class Group {
     public void addShape(Shape shape) {
         this.shape.add(shape);
     }
-    public void addGroup(Group group){
+
+    public void addGroup(Group group) {
         this.group.add(group);
     }
 
@@ -26,5 +27,4 @@ public class Group {
     public String toString() {
         return "Group";
     }
-
 }

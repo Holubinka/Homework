@@ -9,13 +9,9 @@ public class Circle implements Shape {
         setArea();
     }
 
-    private double getRadius() {
-        return radius;
-    }
-
     @Override
     public void setArea() {
-        area = Math.PI * Math.pow(getRadius(), 2);
+        area = Math.PI * Math.pow(this.radius, 2);
     }
 
     @Override

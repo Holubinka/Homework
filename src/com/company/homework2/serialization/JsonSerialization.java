@@ -47,15 +47,16 @@ public class JsonSerialization {
             field.setAccessible(true);
 
             if (field.getType().isArray()) {
-                jsonString += encodeArrayField(field,shape);
+                jsonString += encodeArrayField(field, shape);
             } else {
-                jsonString += "\t\t\t\"" + field.getName() + "\" : \"" + field.get(shape).toString() + "\"\n";
+                jsonString += "\t\t\t\"" + field.getName() + "\" : ";
+                jsonString+="\"" + field.get(shape).toString() + "\"\n";
             }
         }
         return jsonString;
     }
 
-    private static String encodeArrayField(Field field,Shape shape) throws IllegalAccessException {
+    private static String encodeArrayField(Field field, Shape shape) throws IllegalAccessException {
         String jsonString = "";
 
         jsonString += "\t\t\t\"" + field.getName() + "\" : ";

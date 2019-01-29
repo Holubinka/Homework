@@ -1,20 +1,20 @@
 package com.company.homework2.serialization.figure;
 
 public class Triangle implements Shape {
-    private double[] side;
+    private double[] sides;
     private double perimeter;
     private double area;
 
-    public Triangle(double[] side) {
-        this.side = side;
+    public Triangle(double[] sides) {
+        this.sides = sides;
         setPerimeter();
         setArea();
     }
 
     private boolean existTriangle() {
-        if ((side[0] + side[1] > side[2])
-                && (side[0] + side[2] > side[1])
-                && (side[1] + side[2] > side[0])) {
+        if ((sides[0] + sides[1] > sides[2])
+                && (sides[0] + sides[2] > sides[1])
+                && (sides[1] + sides[2] > sides[0])) {
             return true;
         } else {
             return false;
@@ -23,11 +23,11 @@ public class Triangle implements Shape {
 
     private void setPerimeter() {
         if (existTriangle()) {
-            for (int i = 0; i < side.length; i++) {
-                perimeter += side[i];
+            for (int i = 0; i < sides.length; i++) {
+                perimeter += sides[i];
             }
         } else {
-            System.out.println("Такого трикутника не існує");
+            throw new IllegalArgumentException("Такого трикутника не існує");
         }
     }
 
@@ -35,7 +35,7 @@ public class Triangle implements Shape {
     public void setArea() {
         if (existTriangle()) {
             double p = perimeter / 2;
-            area = Math.sqrt(p * (p - side[0]) * (p - side[1]) * (p - side[2]));
+            area = Math.sqrt(p * (p - sides[0]) * (p - sides[1]) * (p - sides[2]));
         }
     }
 

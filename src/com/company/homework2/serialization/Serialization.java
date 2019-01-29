@@ -6,7 +6,7 @@ public class Serialization {
     public static void main(String[] args) throws IllegalAccessException {
         Group shapeGroup1 = new Group();
         Group shapeGroup2 = new Group();
-        Group group= new Group();
+        Group group = new Group();
 
         shapeGroup1.addShape(new Square(2));
         shapeGroup1.addShape(new Circle(5));
