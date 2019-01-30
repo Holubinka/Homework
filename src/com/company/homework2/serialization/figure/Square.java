@@ -1,6 +1,6 @@
 package com.company.homework2.serialization.figure;
 
-public class Square extends Group {
+public class Square implements Shape {
     private double side;
     private double perimeter;
     private double area;
@@ -15,7 +15,8 @@ public class Square extends Group {
         perimeter = 4 * getSide();
     }
 
-    private void setArea() {
+    @Override
+    public void setArea() {
         area = Math.pow(getSide(), 2);
     }
 
