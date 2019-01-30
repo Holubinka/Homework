@@ -1,6 +1,6 @@
 package com.company.homework2.serialization.figure;
 
-public class Circle implements Shape {
+public class Circle extends Group {
     private double radius;
     private double area;
 
@@ -9,9 +9,12 @@ public class Circle implements Shape {
         setArea();
     }
 
-    @Override
-    public void setArea() {
-        area = Math.PI * Math.pow(this.radius, 2);
+    private double getRadius() {
+        return radius;
+    }
+
+    private void setArea() {
+        area = Math.PI * Math.pow(getRadius(), 2);
     }
 
     @Override

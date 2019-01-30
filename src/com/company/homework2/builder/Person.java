@@ -7,27 +7,7 @@ public class Person {
     private final double height;
     private final String colorEye;
 
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public String getColorEye() {
-        return colorEye;
-    }
-
-    private Person(PersonBuilder personBuilder) {
+    public Person(PersonBuilder personBuilder) {
         this.name = personBuilder.name;
         this.age = personBuilder.age;
         this.address = personBuilder.address;
@@ -46,7 +26,6 @@ public class Person {
             this.name = name;
             this.age = age;
         }
-
 
         public PersonBuilder setAddress(String address) {
             this.address = address;
