@@ -4,18 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
-    private List<Group> groups = new ArrayList<>();
+    private List<Shape> shape = new ArrayList<>();
+    private List<Group> group = new ArrayList<>();
 
-    public void add(Group group) {
-        groups.add(group);
+    public void addShape(Shape shape) {
+        this.shape.add(shape);
     }
 
-    public void remove(Group group) {
-        groups.remove(group);
+    public void addGroup(Group group) {
+        this.group.add(group);
+    }
+
+    public List<Shape> getShapes() {
+        return shape;
     }
 
     public List<Group> getGroups() {
-        return groups;
+        return group;
     }
 
     @Override
