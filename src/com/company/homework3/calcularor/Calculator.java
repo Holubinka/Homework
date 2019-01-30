@@ -1,12 +1,16 @@
 package com.company.homework3.calcularor;
 
-import java.io.*;
-import java.util.*;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.StringTokenizer;
 
 public class Calculator {
     public static void main(String[] args) throws Exception {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String expresion;
+        String expression;
         int type;
 
         try {
@@ -19,15 +23,15 @@ public class Calculator {
             if (type == 1) {
                 System.out.println("Введіть вираз для розрахунку");
 
-                expresion = bufferedReader.readLine();
-                expresion = ReversePolishNotation(expresion);
-                System.out.println(calculate(expresion, type));
+                expression = bufferedReader.readLine();
+                expression = ReversePolishNotation(expression);
+                System.out.println(calculate(expression, type));
             } else if (type == 2) {
                 System.out.println("Введіть вираз для розрахунку");
 
-                expresion = bufferedReader.readLine();
-                expresion = ReversePolishNotation(expresion);
-                System.out.println(convertDecimalToRoman(calculate(expresion, type)));
+                expression = bufferedReader.readLine();
+                expression = ReversePolishNotation(expression);
+                System.out.println(convertDecimalToRoman(calculate(expression, type)));
             } else {
                 System.out.println("Ви ввели неправильний тип чисел");
             }
@@ -36,15 +40,15 @@ public class Calculator {
         }
     }
 
-    private static String ReversePolishNotation(String exspresion) throws Exception {
+    private static String ReversePolishNotation(String expression) throws Exception {
         StringBuilder operatorsStack = new StringBuilder();
         StringBuilder operandsOut = new StringBuilder();
 
         char symbol;
         char symbolTemp;
 
-        for (int i = 0; i < exspresion.length(); i++) {
-            symbol = exspresion.charAt(i);
+        for (int i = 0; i < expression.length(); i++) {
+            symbol = expression.charAt(i);
             if (isOperator(symbol)) {
                 while (operatorsStack.length() > 0) {
                     symbolTemp = operatorsStack.substring(operatorsStack.length() - 1).charAt(0);
@@ -56,8 +60,14 @@ public class Calculator {
                         break;
                     }
                 }
-                operandsOut.append(" ");
-                operatorsStack.append(symbol);
+
+                if (i == 0 && isOperator(symbol)){
+                    operandsOut.append(symbol);
+                }else {
+                    operandsOut.append(" ");
+                    operatorsStack.append(symbol);
+                }
+
             } else if ('(' == symbol) {
                 operatorsStack.append(symbol);
             } else if (')' == symbol) {
