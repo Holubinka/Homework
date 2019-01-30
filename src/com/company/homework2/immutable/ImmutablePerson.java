@@ -26,7 +26,7 @@ public final class ImmutablePerson {
     }
 
     public Parents getParent() {
-        return parent.clone();
+        return new Parents(this.parent.getFather(), this.parent.getMother());
     }
 
     @Override
@@ -38,3 +38,34 @@ public final class ImmutablePerson {
     }
 }
 
+class Parents {
+    private String father;
+    private String mother;
+
+    public Parents(String father, String mother) {
+        this.father = father;
+        this.mother = mother;
+    }
+
+    public String getFather() {
+        return father;
+    }
+
+    public void setFather(String father) {
+        this.father = father;
+    }
+
+    public String getMother() {
+        return mother;
+    }
+
+    public void setMother(String mother) {
+        this.mother = mother;
+    }
+
+    @Override
+    public String toString() {
+        return "father='" + father + '\'' +
+                ", mother='" + mother + '\'';
+    }
+}

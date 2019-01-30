@@ -1,28 +1,30 @@
 package com.company.homework2.serialization;
 
 import com.company.homework2.serialization.figure.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Serialization {
     public static void main(String[] args) throws IllegalAccessException {
-        Group shapeGroup1 = new Group();
-        Group shapeGroup2 = new Group();
+        List<Group> groups = new ArrayList<>();
+
         Group group = new Group();
+        group.add(new Square(2));
+        group.add(new Circle(5));
+        group.add(new Triangle(new double[]{4, 5, 6}));
+        group.add(new Square(5));
+        groups.add(group);
 
-        shapeGroup1.addShape(new Square(2));
-        shapeGroup1.addShape(new Circle(5));
-        shapeGroup1.addShape(new Triangle(new double[]{4, 5, 6}));
-        shapeGroup1.addShape(new Square(5));
-        group.addGroup(shapeGroup1);
+        Group group1 = new Group();
+        group1.add(new Square(10));
+        group1.add(new Triangle(new double[]{10, 8, 3}));
+        group1.add(new Square(50));
+        group1.add(new Circle(50));
+        group1.add(new Circle(1));
+        group1.add(new Triangle(new double[]{15, 8, 8}));
+        groups.add(group1);
 
-        shapeGroup2.addShape(new Square(10));
-        shapeGroup2.addShape(new Triangle(new double[]{10, 8, 3}));
-        shapeGroup2.addShape(new Square(50));
-        shapeGroup2.addShape(new Circle(50));
-        shapeGroup2.addShape(new Circle(1));
-        shapeGroup2.addShape(new Triangle(new double[]{15, 8, 8}));
-        group.addGroup(shapeGroup2);
-
-        System.out.println(JsonSerialization.encode(group));
-        System.out.println(XmlSerialization.encode(group));
+        System.out.println(JsonSerialization.encode(groups));
+        System.out.println(XmlSerialization.encode(groups));
     }
 }
