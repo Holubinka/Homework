@@ -1,6 +1,5 @@
 package com.company.homework3.calcularor;
 
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
@@ -8,7 +7,7 @@ import java.util.Deque;
 import java.util.StringTokenizer;
 
 public class Calculator {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String expression;
         int type;
@@ -61,9 +60,9 @@ public class Calculator {
                     }
                 }
 
-                if (i == 0 && isOperator(symbol)){
+                if (i == 0 && isOperator(symbol)) {
                     operandsOut.append(symbol);
-                }else {
+                } else {
                     operandsOut.append(" ");
                     operatorsStack.append(symbol);
                 }
@@ -85,7 +84,6 @@ public class Calculator {
                 operandsOut.append(symbol);
             }
         }
-
         while (operatorsStack.length() > 0) {
             operandsOut.append(" ").append(operatorsStack.substring(operatorsStack.length() - 1));
             operatorsStack.setLength(operatorsStack.length() - 1);
@@ -120,9 +118,9 @@ public class Calculator {
 
     private static double calculate(String expresion, int type) throws Exception {
         String symbolTemp;
-        double firstNumber = 0;
+        double firstNumber;
         double secondNumber;
-        Deque<Double> stack = new ArrayDeque<Double>();
+        Deque<Double> stack = new ArrayDeque<>();
         StringTokenizer st = new StringTokenizer(expresion);
         while (st.hasMoreTokens()) {
             try {
@@ -180,7 +178,7 @@ public class Calculator {
         int decimal = 0;
         int lastNumber = 0;
 
-        String romanNumeral = romanNumber.toString().toUpperCase();
+        String romanNumeral = romanNumber.toUpperCase();
 
         for (int i = romanNumeral.length() - 1; i >= 0; i--) {
             char convertDoDecimal = romanNumeral.charAt(i);
@@ -216,7 +214,7 @@ public class Calculator {
                     break;
             }
         }
-        return decimal;
+        return isOperator(romanNumber.charAt(0)) ? -decimal : decimal;
     }
 
     private static int processDecimal(int decimal, int lastNumber, int lastDecimal) {
@@ -228,76 +226,74 @@ public class Calculator {
     }
 
     private static String convertDecimalToRoman(double decimalNumber) {
-        String romanDecimal = "";
-        double decimal = decimalNumber;
+        StringBuilder romanDecimal = new StringBuilder();
+        double decimal = decimalNumber >= 0 ? decimalNumber : -decimalNumber;
         while (decimal > 0) {
             if (decimal >= 1000) {
-                romanDecimal += "M";
+                romanDecimal.append("M");
                 decimal -= 1000;
                 continue;
             }
             if (decimal >= 900) {
-                romanDecimal += "CM";
+                romanDecimal.append("CM");
                 decimal -= 900;
                 continue;
             }
             if (decimal >= 500) {
-                romanDecimal += "D";
+                romanDecimal.append("D");
                 decimal -= 500;
                 continue;
             }
             if (decimal >= 400) {
-                romanDecimal += "CD";
+                romanDecimal.append("CD");
                 decimal -= 400;
                 continue;
             }
             if (decimal >= 100) {
-                romanDecimal += "C";
+                romanDecimal.append("C");
                 decimal -= 100;
                 continue;
             }
             if (decimal >= 90) {
-                romanDecimal += "XC";
+                romanDecimal.append("XC");
                 decimal -= 90;
                 continue;
             }
             if (decimal >= 50) {
-                romanDecimal += "L";
+                romanDecimal.append("L");
                 decimal -= 50;
                 continue;
             }
             if (decimal >= 40) {
-                romanDecimal += "XL";
+                romanDecimal.append("XL");
                 decimal -= 40;
                 continue;
             }
             if (decimal >= 10) {
-                romanDecimal += "X";
+                romanDecimal.append("X");
                 decimal -= 10;
                 continue;
             }
             if (decimal >= 9) {
-                romanDecimal += "IX";
+                romanDecimal.append("IX");
                 decimal -= 9;
                 continue;
             }
             if (decimal >= 5) {
-                romanDecimal += "V";
+                romanDecimal.append("V");
                 decimal -= 5;
                 continue;
             }
             if (decimal >= 4) {
-                romanDecimal += "IV";
+                romanDecimal.append("IV");
                 decimal -= 4;
                 continue;
             }
             if (decimal >= 1) {
-                romanDecimal += "I";
+                romanDecimal.append("I");
                 decimal -= 1;
-                continue;
             }
         }
-        return romanDecimal;
+        return decimalNumber >= 0 ? romanDecimal.toString() : "-" + romanDecimal;
     }
 }
-
