@@ -1,6 +1,5 @@
 package com.company.homework2.immutable;
 
-
 public class Parents implements Cloneable {
     private String father;
     private String mother;
