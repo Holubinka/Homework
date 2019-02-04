@@ -44,5 +44,3 @@ public class Triangle implements Shape {
         return "Triangle";
     }
 }
-
-
