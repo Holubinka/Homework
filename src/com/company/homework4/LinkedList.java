@@ -66,14 +66,14 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public String toString() {
-        String result = "[";
+        StringBuilder result=new StringBuilder("[");
         Entry<T> node = first;
         for (int i = 0; i < size-1; i++) {
-            result += node + ", ";
+            result.append(node).append(", ");
             node = node.next;
         }
-        result += node.element+"]";
-        return result;
+        result.append(node.element).append("]");
+        return result.toString();
     }
 
     private static class Entry<T> {
