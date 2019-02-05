@@ -18,26 +18,30 @@ public class LinkedList<T> implements List<T> {
         size++;
     }
 
+    private void checkIndexException(int index) {
+        if (index < 0 || index > size) {
+            throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+    }
+
     @Override
     public T get(int index) {
+        checkIndexException(index);
         Node<T> node = getNode(index);
         return node != null ? node.element : null;
     }
 
     private Node<T> getNode(int index) {
-        if (index >= 0 && index <= size) {
-            Node<T> node = first;
-            for (int i = 0; i < index; i++) {
-                node = node.next;
-            }
-            return node;
-        } else {
-            throw new ArrayIndexOutOfBoundsException("Неправильний індекс");
+        Node<T> node = first;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
         }
+        return node;
     }
 
     @Override
     public void remove(int index) {
+        checkIndexException(index);
         Node<T> node = getNode(index);
         Node<T> prev = node.prev;
         Node<T> next = node.next;

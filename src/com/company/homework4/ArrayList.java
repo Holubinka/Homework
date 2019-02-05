@@ -25,6 +25,12 @@ public class ArrayList<T> implements List<T> {
         }
     }
 
+    private void checkIndexException(int index) {
+        if (index < 0 || index > size) {
+            throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+    }
+
     @Override
     public int size() {
         return size;
@@ -32,26 +38,21 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public T get(int index) {
-        if (index < size) {
-            return (T) data[index];
-        } else {
-            throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
+        checkIndexException(index);
+
+        return (T) data[index];
     }
 
     @Override
     public void remove(int index) {
-        if (index < size) {
-            int numMoved = size - index - 1;
-            System.arraycopy(data, index + 1, data, index, numMoved);
+        checkIndexException(index);
+        int numMoved = size - index - 1;
+        System.arraycopy(data, index + 1, data, index, numMoved);
 
-            data[--size] = null;
+        data[--size] = null;
 
-            if (data.length > DEFAULT_CAPACITY && size < data.length / COEFFICIENT)
-                resize((int) ((data.length - 1) / COEFFICIENT));
-        } else {
-            throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
+        if (data.length > DEFAULT_CAPACITY && size < data.length / COEFFICIENT)
+            resize((int) ((data.length - 1) / COEFFICIENT));
     }
 
     private void resize(int newCapacity) {
