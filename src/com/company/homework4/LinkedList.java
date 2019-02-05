@@ -1,14 +1,14 @@
 package com.company.homework4;
 
 public class LinkedList<T> implements List<T> {
-    private Entry<T> first;
-    private Entry<T> last;
+    private Node<T> first;
+    private Node<T> last;
     private int size = 0;
 
     @Override
     public void add(T t) {
-        Entry<T> lastNode = last;
-        Entry<T> newNode = new Entry<>(lastNode, t, null);
+        Node<T> lastNode = last;
+        Node<T> newNode = new Node<>(lastNode, t, null);
         last = newNode;
         if (lastNode == null) {
             first = newNode;
@@ -20,13 +20,13 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public T get(int index) {
-        Entry<T> node = getNode(index);
+        Node<T> node = getNode(index);
         return node != null ? node.element : null;
     }
 
-    private Entry<T> getNode(int index) {
+    private Node<T> getNode(int index) {
         if (index >= 0 && index <= size) {
-            Entry<T> node = first;
+            Node<T> node = first;
             for (int i = 0; i < index; i++) {
                 node = node.next;
             }
@@ -38,9 +38,9 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void remove(int index) {
-        Entry<T> node = getNode(index);
-        Entry<T> prev = node.prev;
-        Entry<T> next = node.next;
+        Node<T> node = getNode(index);
+        Node<T> prev = node.prev;
+        Node<T> next = node.next;
 
         if (prev == null) {
             first = node.next;
@@ -66,9 +66,9 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public String toString() {
-        StringBuilder result=new StringBuilder("[");
-        Entry<T> node = first;
-        for (int i = 0; i < size-1; i++) {
+        StringBuilder result = new StringBuilder("[");
+        Node<T> node = first;
+        for (int i = 0; i < size - 1; i++) {
             result.append(node).append(", ");
             node = node.next;
         }
@@ -76,12 +76,12 @@ public class LinkedList<T> implements List<T> {
         return result.toString();
     }
 
-    private static class Entry<T> {
+    private static class Node<T> {
         private T element;
-        private Entry<T> next;
-        private Entry<T> prev;
+        private Node<T> next;
+        private Node<T> prev;
 
-        Entry(Entry<T> prev, T element, Entry<T> next) {
+        public Node(Node<T> prev, T element, Node<T> next) {
             this.element = element;
             this.next = next;
             this.prev = prev;
@@ -89,7 +89,7 @@ public class LinkedList<T> implements List<T> {
 
         @Override
         public String toString() {
-            return  ""+element;
+            return "" + element;
         }
     }
 }
