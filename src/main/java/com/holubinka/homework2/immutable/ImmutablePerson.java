@@ -37,4 +37,3 @@ public final class ImmutablePerson {
                 ", parent: " + parent;
     }
 }
-
