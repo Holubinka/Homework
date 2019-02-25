@@ -18,23 +18,32 @@ public class JsonSerialization {
     private static String encodeGroup(Group group) throws IllegalAccessException {
         String jsonString = "";
         List<Group> groups = group.getGroups();
+
         for (Group group1 : groups) {
-            jsonString += "\t\"" + group1.getClass().getSimpleName() + "\" : {\n";
+            jsonString += "\t\"" + group1.getClass().getSimpleName().toLowerCase() + "\" : [\n";
             jsonString += encodeShape(group1);
-            jsonString += "\t}\n";
+            jsonString += "\t]\n";
         }
         return jsonString;
     }
 
     private static String encodeShape(Group group) throws IllegalAccessException {
         String jsonString = "";
+        int i = 0;
         List<Shape> shapes = group.getShapes();
+
         for (Shape shape : shapes) {
             Field[] fields = shape.getClass().getDeclaredFields();
-            jsonString += "\t\t\"" + shape.getClass().getSimpleName() + "\" : {\n";
-
+            jsonString += "\t\t" + "{\n";
             jsonString += encodeField(fields, shape);
-            jsonString += "\t\t}\n";
+            jsonString += "\t\t}";
+
+            if (i != shapes.size() - 1) {
+                jsonString += ",\n";
+                i++;
+            } else {
+                jsonString += "\n";
+            }
         }
 
         return jsonString;
@@ -70,8 +79,9 @@ public class JsonSerialization {
         int length = Array.getLength(theArray);
 
         jsonString += "[";
+
         for (int j = 0; j < length; j++) {
-            jsonString += Array.get(theArray, j).toString();
+            jsonString += "{" + Array.get(theArray, j).toString() + "}";
             if (j != length - 1) {
                 jsonString += ", ";
             }

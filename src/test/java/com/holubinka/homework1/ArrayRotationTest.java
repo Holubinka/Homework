@@ -24,5 +24,4 @@ public class ArrayRotationTest {
         int[] actualResult = ArrayRotation.rotated(new int[]{1, 2, 3, 4, 5, 6, 7}, 7);
         Assert.assertArrayEquals(expectedResult, actualResult);
     }
-
 }

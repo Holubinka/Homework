@@ -4,12 +4,14 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Square implements Shape {
+    private String name;
     private double side;
     private double perimeter;
     private double area;
 
-    public Square(double side) {
+    public Square(String name, double side) {
         this.side = side;
+        this.name = name;
         setPerimeter();
         setArea();
     }
