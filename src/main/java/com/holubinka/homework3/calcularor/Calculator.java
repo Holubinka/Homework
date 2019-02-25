@@ -152,7 +152,6 @@ public class Calculator {
                     case '^':
                         firstNumber = Math.pow(firstNumber, secondNumber);
                         break;
-
                 }
                 stack.push(firstNumber);
             } else {
