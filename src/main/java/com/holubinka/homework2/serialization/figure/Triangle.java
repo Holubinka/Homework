@@ -4,11 +4,13 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Triangle implements Shape {
+    private String name;
     private double[] sides;
     private double perimeter;
     private double area;
 
-    public Triangle(double[] sides) {
+    public Triangle(String name, double[] sides) {
+        this.name = name;
         this.sides = sides;
         setPerimeter();
         setArea();

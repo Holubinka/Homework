@@ -19,18 +19,18 @@ public class XmlSerializationTest {
         shapeGroup2 = new Group();
         group = new Group();
 
-        shapeGroup1.addShape(new Square(2));
-        shapeGroup1.addShape(new Circle(5));
-        shapeGroup1.addShape(new Triangle(new double[]{4, 5, 6}));
-        shapeGroup1.addShape(new Square(5));
+        shapeGroup1.addShape(new Square("Square_1", 2));
+        shapeGroup1.addShape(new Circle("Circle_1", 5));
+        shapeGroup1.addShape(new Triangle("Triangle_1", new double[]{4, 5, 6}));
+        shapeGroup1.addShape(new Square("Square_2", 5));
         group.addGroup(shapeGroup1);
 
-        shapeGroup2.addShape(new Square(10));
-        shapeGroup2.addShape(new Triangle(new double[]{10, 8, 3}));
-        shapeGroup2.addShape(new Square(50));
-        shapeGroup2.addShape(new Circle(50));
-        shapeGroup2.addShape(new Circle(1));
-        shapeGroup2.addShape(new Triangle(new double[]{15, 8, 8}));
+        shapeGroup2.addShape(new Square("Square_3", 10));
+        shapeGroup2.addShape(new Triangle("Triangle_2", new double[]{10, 8, 3}));
+        shapeGroup2.addShape(new Square("Square_4", 50));
+        shapeGroup2.addShape(new Circle("Circle_2", 50));
+        shapeGroup2.addShape(new Circle("Circle_3", 1));
+        shapeGroup2.addShape(new Triangle("Triangle_3", new double[]{15, 8, 8}));
         group.addGroup(shapeGroup2);
     }
 

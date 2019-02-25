@@ -18,6 +18,13 @@ public class ArrayRangeTest {
     }
 
     @Test
+    public void testArrayRangeCorrectForOnlyOneElement() {
+        String expectedResult = "[1][5][8][11]";
+        String actualResult = arrayRange.range(new int[]{1, 5, 8, 11});
+        Assert.assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
     public void testArrayRangeCorrectForOneAndLastSingleElement() {
         String expectedResult = "[1][5 6][8 9][11]";
         String actualResult = arrayRange.range(new int[]{1, 5, 6, 8, 9, 11});
@@ -25,10 +32,9 @@ public class ArrayRangeTest {
     }
 
     @Test
-    public void testArrayRangeCorrectForOnlyOneElement() {
-        String expectedResult = "[1][5][8][11]";
-        String actualResult = arrayRange.range(new int[]{1, 5, 8, 11});
+    public void testArrayRangeCorrectForThreeSingleElement() {
+        String expectedResult = "[1 2][4][6][8]";
+        String actualResult = arrayRange.range(new int[]{1, 2, 4, 6, 8});
         Assert.assertEquals(expectedResult, actualResult);
     }
-
 }

@@ -56,5 +56,4 @@ public class LinkedListTest {
     public void testNotEmptyLinkedListRemoveNegativeIndexElement() {
         linkedList.remove(-1);
     }
-
 }
